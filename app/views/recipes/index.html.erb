@@ -28,13 +28,15 @@
 
 <ul class="list-unstyled">
     <% @recipes.each do |recipe| %>
-        <li class="border border-black m-1 p-2 w-25 float-start">
-            <h4 class="mb-1">
-                <%= recipe.name %>
-            </h4>
-            <p class="mb-0">
-                <%= recipe.description %>
-            </p>
-        </li>
+        <a class="text-dark" href="/recipes/<%= recipe.id %>">
+            <li class="border border-black m-1 p-2 w-25 float-start">
+                <h4 class="mb-1">
+                    <%= recipe.name %>
+                </h4>
+                <p class="mb-0">
+                    <%= recipe.description %>
+                </p>
+            </li>
+        </a>
     <% end %>
 </ul>
