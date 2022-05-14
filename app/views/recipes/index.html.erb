@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mb-4">
   <div class="col">
     <h1 class="mt-2">Recipes</h1>
 
@@ -28,18 +28,20 @@
   </form>
 </div>
 
-<ul class="list-unstyled">
+<div class="row">
   <% @recipes.each do |recipe| %>
-    <a class="text-dark" href="/recipes/<%= recipe.id %>">
-      <li class="border border-black m-1 p-2 w-25 float-start">
-        <h4 class="mb-1">
-          <%= recipe.name %>
-        </h4>
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="border border-black m-1 p-2 card-height">
+        <a class="text-dark text-decoration-none" href="/recipes/<%= recipe.id %>">
+            <h4 class="mb-1">
+            <%= recipe.name %>
+            </h4>
+        </a>
 
         <p class="mb-0">
           <%= recipe.description %>
         </p>
-      </li>
-    </a>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
