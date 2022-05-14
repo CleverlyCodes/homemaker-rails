@@ -30,7 +30,7 @@
 
 <div class="row">
   <% @recipes.each do |recipe| %>
-    <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
       <div class="border border-black m-1 p-2 card-height">
         <a class="text-dark text-decoration-none" href="/recipes/<%= recipe.id %>">
             <h4 class="mb-1">
@@ -41,6 +41,11 @@
         <p class="mb-0">
           <%= recipe.description %>
         </p>
+
+        <%= link_to "Delete", recipe_path(recipe), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+        } %>
       </div>
     </div>
   <% end %>
