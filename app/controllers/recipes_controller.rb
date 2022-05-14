@@ -14,9 +14,7 @@ class RecipesController < ApplicationController
     def create
         @recipe = Recipe.new(recipe_params)
 
-        if @recipe.save
-            @recipes = Recipe.all
-        else
+        unless @recipe.save
             render :new, status: :unprocessable_entity
         end
     end
