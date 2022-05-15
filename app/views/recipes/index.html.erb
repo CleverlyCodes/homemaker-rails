@@ -8,22 +8,22 @@
 
 <!-- Setup drawer enabled form to keep everything in one page -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-  <form action="/articles" accept-charset="UTF-8" method="post">
+  <form action="/recipes" accept-charset="UTF-8" method="post">
     <div class="offcanvas-header">
       <h5 id="offcanvasRightLabel">Add a Recipe</h5>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
 
     <div class="offcanvas-body">
-      <input type="email" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Recipe Name">
+      <input class="form-control mb-3" name="recipe[name]" placeholder="Recipe Name">
 
-      <textarea class="form-control mb-3" id="exampleFormControlTextarea1" rows="10" placeholder="Description..."></textarea>
+      <textarea class="form-control mb-3" name="recipe[description]" rows="10" placeholder="Description..."></textarea>
     </div>
 
     <div class="offcanvas-footer py-2 px-3">
       <button class="btn btn-light float-start w-auto" type="button">Cancel</button>
 
-      <button class="btn btn-success float-end w-auto" type="button">Save</button>
+      <button class="btn btn-success float-end w-auto" type="submit">Save</button>
     </div>
   </form>
 </div>
