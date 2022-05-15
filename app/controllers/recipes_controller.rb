@@ -17,6 +17,8 @@ class RecipesController < ApplicationController
         unless @recipe.save
             render :new, status: :unprocessable_entity
         end
+
+        redirect_back_or_to :back
     end
 
     def destroy
