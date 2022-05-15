@@ -5,3 +5,12 @@
 <p>
   <%= @recipe.description %>
 </p>
+
+<form action="/needs" accept-charset="UTF-8" method="post">
+  <select class="form-select" aria-label="Default select example" onselect="submit">
+    <option selected>Choose Ingredients</option>
+    <% @ingredients.each do |ingredient| %>
+      <option value="<%= ingredient.id %>"><%= ingredient.name %></option>
+    <% end %>
+  </select>
+</form>

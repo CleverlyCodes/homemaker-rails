@@ -1,14 +1,14 @@
-class IngredientsController < ApplicationController
+class NeedsController < ApplicationController
   def index
-    @ingredients = Ingredient.all
+    @needs = Need.all
   end
 
   def show
-    @ingredient = Ingredient.find(params[:id])
+    @need = Need.find(params[:id])
   end
 
   def new
-    @ingredient = Ingredient.new
+    @need = Need.new
   end
 
   def create
@@ -23,6 +23,6 @@ class IngredientsController < ApplicationController
 
   private
     def ingredient_params
-        params.require(:ingredient).permit(:recipe, :ingredient)
+        params.require(:ingredient).permit(:name, :description)
     end
 end
