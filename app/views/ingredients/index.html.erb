@@ -1,0 +1,52 @@
+<div class="row mb-4">
+  <div class="col">
+    <h3 class="mt-2 float-start">Ingredients</h3>
+
+    <button class="btn btn-primary btn-sm float-start w-auto ms-3 mt-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add Ingredient</button>
+  </div>
+</div>
+
+<!-- Setup drawer enabled form to keep everything in one page -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <form action="/articles" accept-charset="UTF-8" method="post">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel">Add an Ingredient</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <input type="email" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Recipe Name">
+
+      <textarea class="form-control mb-3" id="exampleFormControlTextarea1" rows="10" placeholder="Description..."></textarea>
+    </div>
+
+    <div class="offcanvas-footer py-2 px-3">
+      <button class="btn btn-light float-start w-auto" type="button">Cancel</button>
+
+      <button class="btn btn-success float-end w-auto" type="button">Save</button>
+    </div>
+  </form>
+</div>
+
+<div class="row">
+  <% @ingredients.each do |ingredient| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+      <div class="border border-black m-1 p-2 card-height">
+        <a class="text-dark text-decoration-none" href="/recipes/<%= ingredient.id %>">
+            <h4 class="mb-1">
+            <%= ingredient.name %>
+            </h4>
+        </a>
+
+        <p class="mb-0">
+          <%= ingredient.description %>
+        </p>
+
+        <%= link_to "Delete", ingredient_path(ingredient), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+        } %>
+      </div>
+    </div>
+  <% end %>
+</div>
