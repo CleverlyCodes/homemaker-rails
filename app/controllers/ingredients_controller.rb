@@ -21,8 +21,15 @@ class IngredientsController < ApplicationController
     redirect_back_or_to :back
   end
 
+  def destroy
+    @ingredient = Ingredient.find(params[:id])
+    @ingredient.destroy
+
+    redirect_back_or_to :back
+  end
+
   private
     def ingredient_params
-        params.require(:ingredient).permit(:recipe, :ingredient)
+        params.require(:ingredient).permit(:name, :description)
     end
 end
