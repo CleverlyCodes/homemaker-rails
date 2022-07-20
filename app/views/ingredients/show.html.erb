@@ -5,3 +5,25 @@
 <p>
   <%= @ingredient.description %>
 </p>
+
+<div class="row">
+  <h5>Inventory</h5>
+  <% @ingredient.item.each do |item| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+      <div class="border border-black m-1 p-2 card-height">
+        <h4 class="mb-1">
+        Batch: <%= @ingredient.id %><%= item.id %>-<%= item.bought_by.strftime('%F') %>
+        </h4>
+
+        <p class="mb-0">
+          <p>Quantity: <%= item.quantity %> <%= item.unit %></p>
+        </p>
+
+        <p class="mb-0">Bought: <%= item.bought_by.strftime('%b %e, %Y') %></p>
+        <p class="mb-0">Expired By: <%= item.expired_by.strftime('%b %e, %Y') %></p>
+        <p class="mb-0">Production Date: <%= item.production_date.strftime('%b %e, %Y') %></p>
+      </div>
+    </div>
+    
+  <% end %>
+</div>
