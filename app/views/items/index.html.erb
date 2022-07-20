@@ -38,8 +38,11 @@
     <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
       <div class="border border-black m-1 p-2 card-height">
         <h5 class="mb-1">
-        Batch: <%= item.ingredient.id %><%= item.id %>-<%= item.bought_by.strftime('%F') %>
+          <%= item.ingredient.name %>
         </h5>
+        <span class="mb-1">
+          Batch: <%= item.ingredient.id %><%= item.id %>-<%= item.bought_by.strftime('%F') %>
+        </span>
 
         <p class="mb-0">
           <p>Quantity: <%= item.quantity %> <%= item.unit %></p>
