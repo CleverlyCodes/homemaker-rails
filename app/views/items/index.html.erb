@@ -1,4 +1,37 @@
-<h3>Inventory</h3>
+<div class="row mb-4">
+  <div class="col">
+    <h3 class="mt-2 float-start">Inventory</h3>
+
+    <button class="btn btn-primary btn-sm float-start w-auto ms-3 mt-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add Stock</button>
+  </div>
+</div>
+
+<!-- Setup drawer enabled form to keep everything in one page -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <form action="/items" accept-charset="UTF-8" method="post">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel">Add a Stock Item</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <input class="form-control mb-3" type="number" name="item[ingredient]" placeholder="Ingredient">
+
+      <input class="form-control mb-3" type="number" name="item[quantity]" placeholder="Quantity">
+      <input class="form-control mb-3" name="item[unit]" placeholder="Unit">
+
+      <label class="me-3">Expired by: </label><input type="date" name="item[expired_by]" > </br>
+      <label class="me-3">Bought by: </label><input type="date" name="item[bought_by]"> </br>
+      <label class="me-3">Produced by: </label><input type="date" name="item[production_date]">
+    </div>
+
+    <div class="offcanvas-footer py-2 px-3">
+      <button class="btn btn-light float-start w-auto" type="button">Cancel</button>
+
+      <button class="btn btn-success float-end w-auto" type="submit">Save</button>
+    </div>
+  </form>
+</div>
 
 <div class="row">
   <% @items.each do |item| %>
