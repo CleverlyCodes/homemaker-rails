@@ -4,9 +4,9 @@
   <% @items.each do |item| %>
     <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
       <div class="border border-black m-1 p-2 card-height">
-        <h4 class="mb-1">
+        <h5 class="mb-1">
         Batch: <%= item.ingredient.id %><%= item.id %>-<%= item.bought_by.strftime('%F') %>
-        </h4>
+        </h5>
 
         <p class="mb-0">
           <p>Quantity: <%= item.quantity %> <%= item.unit %></p>
@@ -17,6 +17,13 @@
           Expired By: <%= item.expired_by.strftime('%b %e, %Y') %>
           <% if item.expired_by < DateTime.now %>
             <span class="badge bg-danger">Expired</span>
+
+            <span class="badge bg-danger">
+              <%= link_to "Dispose", item_path(item), data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+              } %>
+            </span>
           <% elsif item.expired_by < DateTime.now+2.week %>
             <span class="badge bg-warning">Near Expiry</span>
           <% end %>
