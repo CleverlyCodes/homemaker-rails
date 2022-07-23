@@ -1,5 +1,4 @@
-class Recipe < ApplicationRecord
-  has_many :need
+class Menu < ApplicationRecord
   has_many :own
 
   validates :name, presence: true

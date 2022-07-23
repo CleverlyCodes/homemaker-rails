@@ -1,0 +1,26 @@
+<h2>
+  <%= @menu.name %>
+</h2>
+
+<p>
+  <%= @menu.description %>
+</p>
+
+<form action="/owns" accept-charset="UTF-8" method="post">
+  <div class="row">
+    <input class="form-control mb-3" value=<%= @menu.id %> name="own[menu]" type="hidden">
+
+    <div class="col-11">
+      <select class="form-select" name="own[recipe]" aria-label="Default select example" onselect="submit">
+        <option selected>Add Recipes</option>
+        <% @recipes.each do |recipe| %>
+          <option value="<%= recipe.id %>"><%= recipe.name %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div class="col-1">
+       <button class="btn btn-success float-end w-100" type="submit">Save</button>
+    </div>
+  </div>
+</form>
