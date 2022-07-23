@@ -11,8 +11,8 @@
     <input class="form-control mb-3" value=<%= @menu.id %> name="own[menu]" type="hidden">
 
     <div class="col-11">
-      <select class="form-select" name="own[recipe]" aria-label="Default select example" onselect="submit">
-        <option class="w-100" selected>Add Recipes</option>
+      <select class="form-select w-100" name="own[recipe]" aria-label="Default select example" onselect="submit">
+        <option selected>Add Recipes</option>
         <% @recipes.each do |recipe| %>
           <option value="<%= recipe.id %>"><%= recipe.name %></option>
         <% end %>
@@ -24,3 +24,21 @@
     </div>
   </div>
 </form>
+
+<div class="mt-5 row">
+  <% @owns.each do |own| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+      <div class="border border-black m-1 p-2 card-height">
+        <a class="text-dark text-decoration-none" href="/recipes/<%= own.recipe.id %>">
+            <h4 class="mb-1">
+            <%= own.recipe.name %>
+            </h4>
+        </a>
+
+        <p class="mb-0">
+          <%= own.recipe.description %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

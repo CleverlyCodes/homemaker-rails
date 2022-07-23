@@ -6,6 +6,7 @@ class MenusController < ApplicationController
     def show
         @menu = Menu.find(params[:id])
         @recipes = Recipe.all
+        @owns = Own.where(menu_id: @menu.id);
     end
 
     def destroy
