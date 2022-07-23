@@ -7,10 +7,30 @@
 </p>
 
 <form action="/needs" accept-charset="UTF-8" method="post">
-  <select class="form-select" aria-label="Default select example" onselect="submit">
-    <option selected>Choose Ingredients</option>
-    <% @ingredients.each do |ingredient| %>
-      <option value="<%= ingredient.id %>"><%= ingredient.name %></option>
-    <% end %>
-  </select>
+  <div class="row">
+    <input class="form-control mb-3" value=<%= @recipe.id %> name="need[recipe]" type="hidden">
+
+    <div class="col-11">
+      <select class="form-select" name="need[ingredient]" aria-label="Default select example" onselect="submit">
+        <option selected>Add Ingredients</option>
+        <% @ingredients.each do |ingredient| %>
+          <option value="<%= ingredient.id %>"><%= ingredient.name %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div class="col-1">
+       <button class="btn btn-success float-end w-100" type="submit">Save</button>
+    </div>
+  </div>
 </form>
+
+<div class="mt-5">
+  <ul>
+    <% @needs.each do |need| %>
+      <li>
+        <%= need.ingredient.name %>
+      </li>
+    <% end %>
+  </ul>
+</div>

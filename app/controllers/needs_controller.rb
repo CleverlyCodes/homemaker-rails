@@ -12,9 +12,19 @@ class NeedsController < ApplicationController
   end
 
   def create
-    @ingredient = Ingredient.new(ingredient_params)
+    print "!!!"
+    print params[:need][:ingredient]
+    print params[:need][:recipe]
 
-    unless @ingredient.save
+    @ingredient = Ingredient.find(params[:need][:ingredient])
+    @recipe = Recipe.find(params[:need][:recipe])
+
+    @need = Need.new(
+      :recipe => @recipe,
+      :ingredient => @ingredient,
+    )
+
+    unless @need.save
       render :new, status: :unprocessable_entity
     end
 
@@ -23,6 +33,6 @@ class NeedsController < ApplicationController
 
   private
     def ingredient_params
-        params.require(:ingredient).permit(:name, :description)
+        params.require(:ingredient).permit(:recipe, :ingredient)
     end
 end
