@@ -29,7 +29,7 @@
   <ul>
     <% @needs.each do |need| %>
       <li>
-        <%= need.ingredient.name %>
+        <%= need.ingredient.name %> - <%= need.quantity %> <%= need.unit %>
       </li>
     <% end %>
   </ul>
