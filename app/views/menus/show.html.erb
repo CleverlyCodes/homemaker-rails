@@ -12,7 +12,7 @@
 
     <div class="col-11">
       <select class="form-select" name="own[recipe]" aria-label="Default select example" onselect="submit">
-        <option selected>Add Recipes</option>
+        <option class="w-100" selected>Add Recipes</option>
         <% @recipes.each do |recipe| %>
           <option value="<%= recipe.id %>"><%= recipe.name %></option>
         <% end %>
