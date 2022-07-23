@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @ingredients = Ingredient.all()
     @items = Item.all().order(expired_by: :asc)
   end
 
