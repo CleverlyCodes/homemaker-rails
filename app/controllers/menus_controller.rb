@@ -6,7 +6,17 @@ class MenusController < ApplicationController
     def show
         @menu = Menu.find(params[:id])
         @recipes = Recipe.all
-        @owns = Own.where(menu_id: @menu.id);
+        @owns = Own.where(menu_id: @menu.id)
+
+        # @needs ||= Array.new
+        # @owns.map do |own|
+        #     @need = Need.where(recipe_id: own.recipe_id)
+
+        #     @needs << @need
+        # end
+
+        # print "!!!"
+        # print @needs
     end
 
     def destroy

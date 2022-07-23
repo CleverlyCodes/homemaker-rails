@@ -52,3 +52,25 @@
     </div>
   <% end %>
 </div>
+
+<div class="row mt-5">
+  <div class="col">
+    <h2 class="float-start">
+      Ingredients
+    </h2>
+
+    <%= link_to 'print', 'your_link_here', :onclick => 'window.print(); return false;'%>
+  </div>
+</div>
+
+<div class="mt-2">
+  <ul>
+    <% @owns.each do |own| %>
+      <% own.recipe.need.each do |need| %>
+        <li>
+          <%= need.ingredient.name %> - <%= need.quantity %> <%= need.unit %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
