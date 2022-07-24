@@ -69,11 +69,13 @@
 </div>
 
 <div class="mt-2">
-  <ul>
+  <ul class="list-unstyled w-100">
     <% @owns.each do |own| %>
       <% own.recipe.need.each do |need| %>
-        <li>
-          <%= need.ingredient.name %> - <%= need.quantity %> <%= need.unit %>
+        <li class="float-start ms-3">
+          <input class="form-control mb-3 w-50 float-start" value="<%= need.ingredient.name %>" placeholder="Quantity">
+          <input class="form-control mb-3 side-field float-start" value="<%= need.quantity %>" placeholder="Quantity">
+          <input class="form-control mb-3 side-field float-start" value="<%= need.unit %>" placeholder="Unit">
         </li>
       <% end %>
     <% end %>
