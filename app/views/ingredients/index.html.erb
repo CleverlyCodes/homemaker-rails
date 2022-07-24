@@ -30,22 +30,22 @@
 
 <div class="row">
   <% @ingredients.each do |ingredient| %>
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+    <div class="col-lg-3 col-md-4 col-sm-4 mb-2">
       <div class="border border-black m-1 p-2 card-height">
         <a class="text-dark text-decoration-none" href="/ingredients/<%= ingredient.id %>">
-            <h4 class="mb-1">
+            <h6 class="mb-1">
             <%= ingredient.name %>
-            </h4>
+            </h6>
         </a>
 
-        <p class="mb-0">
-          <%= ingredient.description %>
-        </p>
-
-        <%= link_to "Delete", ingredient_path(ingredient), data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure?"
-        } %>
+        <%= link_to "X", 
+            ingredient_path(ingredient),
+            class: "close-icon text-danger",
+            data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"
+            } 
+        %>
       </div>
     </div>
   <% end %>
