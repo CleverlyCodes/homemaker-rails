@@ -19,3 +19,7 @@
 .card-height {
   min-height: 10rem;
 }
+
+@media print {
+  .hide-on-print { display: none; }
+}

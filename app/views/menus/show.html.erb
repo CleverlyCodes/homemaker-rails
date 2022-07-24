@@ -1,12 +1,12 @@
-<h2>
+<h2 class="hide-on-print">
   <%= @menu.name %>
 </h2>
 
-<p>
+<p class="hide-on-print">
   <%= @menu.description %>
 </p>
 
-<form action="/owns" accept-charset="UTF-8" method="post">
+<form class="hide-on-print" action="/owns" accept-charset="UTF-8" method="post">
   <div class="row">
     <input class="form-control mb-3" value=<%= @menu.id %> name="own[menu]" type="hidden">
 
@@ -25,7 +25,7 @@
   </div>
 </form>
 
-<div class="row mt-5">
+<div class="row mt-5 hide-on-print">
   <div class="col">
     <h2 class="float-start">
       Recipes
@@ -35,7 +35,7 @@
   </div>
 </div>
 
-<div class="mt-2 row">
+<div class="mt-2 row hide-on-print">
   <% @owns.each do |own| %>
     <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
       <div class="border border-black m-1 p-2 card-height">
