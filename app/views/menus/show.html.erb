@@ -48,6 +48,11 @@
         <p class="mb-0">
           <%= own.recipe.description %>
         </p>
+
+        <%= link_to "Delete", own_path(own), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+        } %>
       </div>
     </div>
   <% end %>

@@ -22,4 +22,11 @@ class OwnsController < ApplicationController
 
     redirect_back_or_to :back
   end
+
+  def destroy
+    @own = Own.find(params[:id])
+    @own.destroy
+
+    redirect_back_or_to :back
+  end
 end
